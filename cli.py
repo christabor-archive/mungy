@@ -18,7 +18,6 @@ else:
     pqdoc = pq(filename='{}/{}'.format(file_dir, filename))
 
 
-title = '_'.join(pq(pqdoc).find('title').text().split(' '))
 choice_type = raw_input('Select the type of html node you '
                         'want to convert: \n1. Table \n2. List\n')
 
@@ -33,6 +32,7 @@ save = raw_input('save json file? Y/N\n')
 
 content = mung.to_json(results)
 if save == 'Y':
+    title = raw_input('Please enter a filename (without filetype) ==> ')
     with open('{}{}.json'.format(file_dir, title), 'wb') as _json:
         _json.write(content)
         _json.write('\n')
