@@ -38,7 +38,19 @@ class Munger():
         return list_items
 
     def table_to_dict_values(self, table_html):
-        # Sort by values
+        """Takes table html and converts into a
+        dictionary with the following format:
+            {
+                "0": {
+                    "thead1": "td1"
+                    "thead2": "td2"
+                },
+                "1": {
+                    "thead1": "td1"
+                    "thead2": "td2"
+                }
+            }
+        """
         data = {}
         headings = []
         # Try proper theader formatting first.
@@ -48,7 +60,7 @@ class Munger():
         if not ths:
             raise MalformedHTMLError('Invalid html. No THs could be found.')
         for th in ths:
-            headings.append(pq(th).text().strip().lower())
+            headings.append('_'.join(pq(th).text().strip().lower().split(' ')))
         trs = pq(table_html).find('tbody tr')
         if not trs:
             trs = pq(table_html).find('tr')
