@@ -58,6 +58,8 @@ class Munger():
         if not ths:
             ths = pq(table_html).find('th')
         if not ths:
+            ths = pq(table_html).find('thead').children()
+        if not ths:
             raise MalformedHTMLError('Invalid html. No THs could be found.')
         for th in ths:
             headings.append('_'.join(pq(th).text().strip().lower().split(' ')))

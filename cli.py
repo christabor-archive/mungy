@@ -23,8 +23,7 @@ choice_type = raw_input('Select the type of html node you '
 
 if choice_type in ['1', '1.']:
     table = pq(pqdoc.find('table')[0]).html()
-    html = mung.table_to_dict_values(table)
-    results = mung.dict_to_list(html)
+    results = mung.table_to_dict_values(table)
 else:
     results = mung.html_to_lists(pqdoc)
 
