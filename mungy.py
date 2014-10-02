@@ -71,7 +71,10 @@ class Munger():
         for k, tr in enumerate(trs):
             tr_data = {}
             for k1, td in enumerate(pq(tr).children()):
-                tr_data[headings[k1]] = pq(td).text().strip().lower()
+                try:
+                    tr_data[headings[k1]] = pq(td).text().strip().lower()
+                except IndexError:
+                    continue
             data[k] = tr_data
         return data
 

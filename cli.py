@@ -22,8 +22,10 @@ choice_type = raw_input('Select the type of html node you '
                         'want to convert: \n1. Table \n2. List\n')
 
 if choice_type in ['1', '1.']:
-    table = pq(pqdoc.find('table')[0]).html()
-    results = mung.table_to_dict_values(table)
+    results = []
+    # Add any number of tables.
+    for table in pqdoc.find('table'):
+        mung.table_to_dict_values(pq(table).html())
 else:
     results = mung.html_to_lists(pqdoc)
 
