@@ -4,7 +4,7 @@ import os
 
 mung = mungy.Munger()
 
-file_dir = '{}/fixtures/'.format(os.getcwd())
+file_dir = '{}/'.format(os.getcwd())
 
 ref_type = raw_input('Which type? \n1. URL \n2. File \n')
 
@@ -29,10 +29,10 @@ if choice_type in ['1', '1.']:
 else:
     results = mung.html_to_lists(pqdoc)
 
-save = raw_input('save json file? Y/N\n')
+save = raw_input('save json file? Y/N\n').lower()
 
 content = mung.to_json(results)
-if save == 'Y':
+if save == 'y':
     title = raw_input('Please enter a filename (without filetype) ==> ')
     with open('{}{}.json'.format(file_dir, title), 'wb') as _json:
         _json.write(content)
