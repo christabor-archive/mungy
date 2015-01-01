@@ -1,6 +1,6 @@
 Mungy: a tool for data munging
 =====
 
-Converts tabular data and lists into clean json for use in data visualization... or anything else!
+Very simple tool that converts tabular data and lists into clean json for use in data visualization... or anything else!
 
-This is work in progress. Feel free to contribute, but it can be used as a simple tool.
+Note: This tool may be a better solution, but chances are you're probably better off using a parsing helper like pandas' html IO module. https://github.com/pydata/pandas.
